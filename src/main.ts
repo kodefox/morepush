@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { execSync } from 'child_process';
 import yargs from 'yargs';
 import chalk from 'chalk';
