@@ -1,24 +1,34 @@
 {
 	"name": "monopush",
-	"version": "1.0.0",
-	"license": "MIT",
+  "description": "A library for monorepo pre-push hooks to test changed project only.",
+	"version": "0.0.1",
+  "author": "KodeFox <hello@kodefox.com> (https://github.com/kodefox/)",
+  "bin": {
+    "monopush": "dist/main.js"
+  },
+  "main": "dist/main.js",
+  "files": ["/dist"],
 	"scripts": {
 		"start": "node dist/main.js",
 		"build": "yarn test && yarn build-ts",
 		"watch-node": "nodemon dist/main.js",
 		"watch": "concurrently \"yarn watch-ts\" \"yarn watch-node\" ",
-		"build-ts": "tsc",
+		"build-ts": "tsc && chmod +x ./dist/main.js && rm -rf ./dist/helpers/__tests__",
 		"watch-ts": "tsc -w",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"format:check": "prettier --check \"src/**/*.ts\"",
 		"lint": "eslint --max-warnings 0 \"src/**/*.ts\"",
 		"typecheck": "tsc --noEmit -p .",
-		"jest": "jest --coverage --passWithNoTests",
+		"jest": "jest --coverage",
 		"test": "yarn lint && yarn typecheck && yarn format:check && yarn jest"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"yargs": "^15.3.1"
+	},
 	"devDependencies": {
 		"@types/jest": "24.0.18",
+		"@types/node": "^13.13.5",
+		"@types/yargs": "^15.0.4",
 		"concurrently": "4.1.2",
 		"eslint": "6.7.2",
 		"eslint-config-kodefox": "0.0.2",
@@ -37,5 +47,6 @@
 		"singleQuote": true,
 		"trailingComma": "all",
 		"arrowParens": "always"
-	}
+	},
+	"license": "MIT"
 }
