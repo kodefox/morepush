@@ -1,9 +1,9 @@
 {
 	"name": "morepush",
 	"description": "A library for monorepo pre-push hooks to test changed project only.",
-	"version": "0.0.2-alpha.1",
+	"version": "0.0.2",
 	"author": "KodeFox <hello@kodefox.com> (https://github.com/kodefox/)",
-  "repository": "github:kodefox/morepush",
+	"repository": "github:kodefox/morepush",
 	"bin": {
 		"morepush": "dist/main.js"
 	},
@@ -12,7 +12,7 @@
 		"/dist"
 	],
 	"scripts": {
-    "prepare": "yarn build",
+		"prepare": "yarn build",
 		"start": "node dist/main.js",
 		"build": "yarn test && yarn build-ts",
 		"watch-node": "nodemon dist/main.js",
