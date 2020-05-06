@@ -1,5 +1,6 @@
 import { execSync } from 'child_process';
 import yargs from 'yargs';
+import chalk from 'chalk';
 
 import { getProjectsDir, getRootDir, runTests } from './helpers';
 
@@ -17,8 +18,9 @@ export function handler(argv: HandlerArgv) {
 
   // eslint-disable-next-line no-console
   console.log(
-    // NOTE: Use chalk later
-    '>> Running pre-push hook for testing related package to the commits',
+    chalk.yellow(
+      'Running pre-push hook for testing related package to the commits',
+    ),
   );
 
   let projects = getProjectsDir(rootDir).filter(

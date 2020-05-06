@@ -1,14 +1,17 @@
 {
 	"name": "monopush",
-  "description": "A library for monorepo pre-push hooks to test changed project only.",
+	"description": "A library for monorepo pre-push hooks to test changed project only.",
 	"version": "0.0.1",
-  "author": "KodeFox <hello@kodefox.com> (https://github.com/kodefox/)",
-  "bin": {
-    "monopush": "dist/main.js"
-  },
-  "main": "dist/main.js",
-  "files": ["/dist"],
+	"author": "KodeFox <hello@kodefox.com> (https://github.com/kodefox/)",
+	"bin": {
+		"monopush": "dist/main.js"
+	},
+	"main": "dist/main.js",
+	"files": [
+		"/dist"
+	],
 	"scripts": {
+    "prepare": "yarn build",
 		"start": "node dist/main.js",
 		"build": "yarn test && yarn build-ts",
 		"watch-node": "nodemon dist/main.js",
@@ -23,6 +26,7 @@
 		"test": "yarn lint && yarn typecheck && yarn format:check && yarn jest"
 	},
 	"dependencies": {
+		"chalk": "^4.0.0",
 		"yargs": "^15.3.1"
 	},
 	"devDependencies": {

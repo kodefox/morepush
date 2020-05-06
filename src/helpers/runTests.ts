@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import chalk from 'chalk';
 
 type RunTestsParams = {
   rootDir: string;
@@ -11,15 +12,12 @@ export function runTests(params: RunTestsParams) {
   for (let project of projects) {
     if (!changedDirs.includes(project)) {
       // eslint-disable-next-line no-console
-      console.log(`>> No changes in ${project}. Skipping.`);
+      console.log(chalk.blue(`No changes in ${project}. Skipping.`));
       continue;
     }
 
     // eslint-disable-next-line no-console
-    console.log(
-      // NOTE: Use chalk later
-      `>> Will start testing ${project}`,
-    );
+    console.log(chalk.blue(`Will start testing ${project}`));
 
     try {
       execSync(`cd ${rootDir}/${project} && yarn test`, {
