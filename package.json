@@ -1,7 +1,7 @@
 {
 	"name": "morepush",
 	"description": "A library for monorepo pre-push hooks to test changed project only.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "KodeFox <hello@kodefox.com> (https://github.com/kodefox/)",
 	"repository": "github:kodefox/morepush",
 	"bin": {
